@@ -19,8 +19,8 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-7) Go inside verified-permissions in aws console, create your policy store and create the two separate policies:
-https://us-east-1.console.aws.amazon.com/verifiedpermissions/
+7) Go inside [verified-permissions in aws console](https://us-east-1.console.aws.amazon.com/verifiedpermissions/), create your policy store and create the two separate policies:
+
 
 ```javascript
 // Permitting any user to perform login action
@@ -36,3 +36,5 @@ permit (
     resource == Cash::"cash_withdraw"
 ) when { context.riskScore <= 66 };
 ```
+
+8) Go back to the application, press 'Set User', then press Login/Withdraw buttons to trigger actions and see the authorization result.

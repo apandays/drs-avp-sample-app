@@ -1,6 +1,6 @@
 # Transmit Detection & Response <> Amazon-Verified-Permissions Integration Sample App
 
-<img width="1321" alt="Screenshot 2023-05-24 at 20 48 30" src="https://github.com/TransmitSecurity/drs-avp-sample-app/assets/114135804/3f55a32d-a8af-4900-93ac-f47fd51af6c1">
+<img width="1335" alt="Screenshot 2023-05-24 at 20 49 27" src="https://github.com/TransmitSecurity/drs-avp-sample-app/assets/114135804/81dc8f96-1431-49b3-8629-d37ca6b256a7">
 
 ## Getting Started
 

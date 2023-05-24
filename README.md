@@ -4,6 +4,8 @@
 
 ## Getting Started
 
+The sample app is written in next.js, covering both client & backend side integrations.
+
 1) run `yarn` or `npm i`
 2) make sure you install aws-cli on your machine from this guide: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 3) run `aws configure` to connect to aws with your access-key

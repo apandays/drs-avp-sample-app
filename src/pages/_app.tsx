@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
             src="/verified-permissions-logo.png"
             alt="Amazon Verified-Permissions Logo"
             className="dark:invert"
-            width={32}
+            width={30}
             height={30}
             priority
           />

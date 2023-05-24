@@ -1,4 +1,7 @@
 # Transmit Detection & Response <> Amazon-Verified-Permissions Integration Sample App
+
+<img width="1321" alt="Screenshot 2023-05-24 at 20 48 30" src="https://github.com/TransmitSecurity/drs-avp-sample-app/assets/114135804/3f55a32d-a8af-4900-93ac-f47fd51af6c1">
+
 ## Getting Started
 
 1) run `yarn` or `npm i`

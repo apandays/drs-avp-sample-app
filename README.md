@@ -9,7 +9,7 @@ This sample app is written in next.js, covering both client & backend side integ
 1) run `yarn` or `npm i`
 2) make sure you install aws-cli on your machine from this guide: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 3) run `aws configure` to connect to aws with your access-key
-4) In `src/utils/config.ts` file - configure your transmitClientId & transmitClientSecret provided by your application in Transmit-Security portal (for the backend config)
+4) In `src/utils/config.ts` file - configure your transmitClientId & transmitClientSecret provided by your application in Transmit-Security portal (for the backend config), and configure your policyStoreId from AWS Verified Permissions.
 5) In `src/_app.tsx` file, configure your transmit clientId in: `<TSAccountProtectionProvider clientId='YOUR-CLIENT-ID'>`
 6) run the development server:
 

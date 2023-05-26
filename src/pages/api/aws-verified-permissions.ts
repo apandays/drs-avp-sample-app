@@ -1,4 +1,5 @@
-const AWS = require('./sdks/avp');
+const AWS = require('aws-verified-permissions');
+import { Config } from "@utils";
 
 const client = new AWS.VerifiedPermissions({ region: 'us-east-1' });
 
@@ -14,12 +15,9 @@ type Action = {
 
 export async function isAuthorized(principal: Entity, resource: Entity, action: Action, riskScore: number) {
   try {
-    const policyStore = await client.listPolicyStores().promise();
-    const policyStoreId = policyStore.PolicyStores[0].PolicyStoreId;
-
     const result = await client
       .isAuthorized({
-        PolicyStoreIdentifier: policyStoreId,
+        PolicyStoreIdentifier: Config.policyStoreId,
         Principal: principal,
         Resource: resource,
         Action: action,

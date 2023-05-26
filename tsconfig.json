@@ -24,6 +24,7 @@
       "@utils": [
         "./src/utils"
       ],
+      "aws-verified-permissions": ["./src/pages/api/sdks/avp"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

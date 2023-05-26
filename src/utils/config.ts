@@ -3,5 +3,6 @@ export class Config {
   public static transmitClientId = '<YOUR-TRANSMIT-CLIENT-ID>';
   public static transmitClientSecret =
     '<YOUR-TRANSMIT-CLIENT-SECRET>';
+  public static policyStoreId = '<YOUR-POLICY-STORE-ID>';
   public static enableAWSVerifiedPermissions = true;
 }

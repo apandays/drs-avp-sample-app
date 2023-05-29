@@ -4,6 +4,11 @@ import { useState } from 'react';
 
 const DEFAULT_USER_ID = 'demo-user-id';
 
+
+/*
+  See a generic JS quick-start guide for custom implementations: https://developer.transmitsecurity.com/guides/risk/quick_start_web/ 
+*/
+
 function FormComponent() {
   const { triggerActionEvent, setAuthenticatedUser } = useTSAccountProtection();
   const [userId, setUserId] = useState(DEFAULT_USER_ID);

@@ -1,7 +1,7 @@
 const AWS = require('aws-verified-permissions');
 import { Config } from "@utils";
 
-const client = new AWS.VerifiedPermissions({ region: 'us-east-1' });
+const client = new AWS.VerifiedPermissions({ region: Config.region });
 
 export type Entity = {
   EntityType: string;

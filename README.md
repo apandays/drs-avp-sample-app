@@ -9,9 +9,10 @@ This sample app is written in next.js, covering both client & backend side integ
 1) run `yarn` or `npm i`
 2) make sure you install aws-cli on your machine from this guide: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 3) run `aws configure` to connect to aws with your access-key
-4) In `src/utils/config.ts` file - configure your transmitClientId & transmitClientSecret provided by your application in Transmit-Security portal (for the backend config), and configure your policyStoreId from AWS Verified Permissions.
-5) In `src/_app.tsx` file, configure your transmit clientId in: `<TSAccountProtectionProvider clientId='YOUR-CLIENT-ID'>`
-6) run the development server:
+4) In Transmit Security Admin Portal - create a new application to get client credentials as specified [here](https://developer.transmitsecurity.com/guides/user/create_new_application/)
+5) In `src/utils/config.ts` file (backend config) - configure your `transmitClientId` & `transmitClientSecret` from the previous step, configure your `policyStoreId` from AWS Verified Permissions and the relevant AWS `region`.
+6) In `src/_app.tsx` file, configure your transmit clientId in: `<TSAccountProtectionProvider clientId='YOUR-CLIENT-ID'>`
+7) run the development server:
 
 ```bash
 npm run dev
@@ -21,7 +22,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-7) Go inside [verified-permissions in aws console](https://us-east-1.console.aws.amazon.com/verifiedpermissions/), create your policy store and create the two separate policies:
+8) Go inside [verified-permissions in aws console](https://console.aws.amazon.com/verifiedpermissions/home), create your policy store and create the two separate policies:
 
 
 ```javascript
@@ -39,4 +40,4 @@ permit (
 ) when { context.riskScore <= 66 };
 ```
 
-8) Go back to the application, press 'Set User', then press Login/Withdraw buttons to trigger actions and see the authorization result.
+9) Go back to the application, press 'Set User', then press Login/Withdraw buttons to trigger actions and see the authorization result.

@@ -7,7 +7,7 @@ import '../App.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <TSAccountProtectionProvider clientId={'b32f1491.db9c649b.xyz32r5xs78avnkvooqgx.riskid.security'}>
+    <TSAccountProtectionProvider clientId={'<YOUR-TRANSMIT-CLIENT-ID>'}>
     <div className="App">
       <header className="App-header">
       <h2>

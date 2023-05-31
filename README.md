@@ -36,7 +36,7 @@ permit (
 permit (
     principal == User::"demo-user-id",
     action in [Action::"withdraw"],
-    Resource == Account::"account-demo-user-id"
+    resource == Account::"account-demo-user-id"
 ) when { context.riskScore <= 66 };
 ```
 

@@ -1,7 +1,7 @@
 import { Config } from '@utils';
 import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { isAuthorized, Entity } from './aws-verified-permissions';
+import { isAuthorized } from './aws-verified-permissions';
 
 function parseActionToken(actionToken: unknown) {
   if (typeof actionToken == 'string') {

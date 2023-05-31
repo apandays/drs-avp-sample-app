@@ -26,17 +26,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 ```javascript
-// Permitting any user to perform login action
+// Permitting any user to perform login action to any account
 permit (
     principal,
     action in [Action::"login"],
-    resource == Account::"login"
+    resource
 );
-// Permitting specific 'demo-user-id' to perform withdraw action, with additional condition on drs riskScore detection result
+// Permitting specific 'demo-user-id' to perform ‘withdraw’ action in specific resource account, with additional condition on Detection and Response riskScore result
 permit (
     principal == User::"demo-user-id",
     action in [Action::"withdraw"],
-    resource == Cash::"cash_withdraw"
+    Resource == Account::"account-demo-user-id"
 ) when { context.riskScore <= 66 };
 ```
 

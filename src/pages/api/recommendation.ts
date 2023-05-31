@@ -3,21 +3,6 @@ import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { isAuthorized, Entity } from './aws-verified-permissions';
 
-const actionToResource = {
-  reservation: {
-    EntityType: 'Flight',
-    EntityId: 'flight_booking',
-  },
-  withdraw: {
-    EntityType: 'Cash',
-    EntityId: 'cash_withdraw',
-  },
-  login: {
-    EntityType: 'Account',
-    EntityId: 'login',
-  },
-} as Record<string, Entity>;
-
 function parseActionToken(actionToken: unknown) {
   if (typeof actionToken == 'string') {
     return JSON.parse(Buffer.from(actionToken.split('.')[1], 'base64').toString());
@@ -34,8 +19,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (Config.enableAWSVerifiedPermissions) {
         const actionPayload = parseActionToken(actionToken);
         const { actionType, userId } = actionPayload;
-        const resource = actionToResource[actionType];
-        if (userId && resource) {
+        const resource = { // default resource example
+          EntityType: 'Account',
+          EntityId: `account-${userId}`
+        };
+
+        if (userId) {
           const isAuthorizedForAction = await isAuthorized({ EntityType: 'User', EntityId: userId }, resource, {
             ActionType: 'Action',
             ActionId: actionType,

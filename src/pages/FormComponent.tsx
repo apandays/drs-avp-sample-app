@@ -35,7 +35,7 @@ function FormComponent() {
         <input style={{ height: '29px'}} type="text" defaultValue={DEFAULT_USER_ID} onChange={handleUserChange} />
       <button
         className="action-button"
-        onClick={async () => await setAuthenticatedUser(userId)}
+        onClick={async () => await setAuthenticatedUser(userId)} // calling setAuthenticatedUser after the user was successfully authenticated
         >
           Set User
       </button>

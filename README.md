@@ -11,8 +11,7 @@ This sample app is written in next.js, covering both client & backend side integ
 3) run `aws configure` to connect to aws with your access-key
 4) In Transmit Security Admin Portal - create a new application to get client credentials as specified [here](https://developer.transmitsecurity.com/guides/user/create_new_application/)
 5) In `src/utils/config.ts` file (backend config) - configure your `transmitClientId` & `transmitClientSecret` from the previous step, configure your `policyStoreId` from AWS Verified Permissions and the relevant AWS `region`.
-6) In `src/_app.tsx` file, configure your transmit clientId in: `<TSAccountProtectionProvider clientId='YOUR-CLIENT-ID'>`
-7) run the development server:
+6) run the development server:
 
 ```bash
 npm run dev
@@ -22,7 +21,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-8) Go inside [verified-permissions in aws console](https://console.aws.amazon.com/verifiedpermissions/home), create your policy store and create the two separate policies:
+7) Go inside [verified-permissions in aws console](https://console.aws.amazon.com/verifiedpermissions/home), create your policy store and create the two separate policies:
 
 
 ```javascript
@@ -40,4 +39,4 @@ permit (
 ) when { context.riskScore <= 66 };
 ```
 
-9) Go back to the application, press 'Set User', then press Login/Withdraw buttons to trigger actions and see the authorization result.
+8) Go back to the application, press 'Set User', then press Login/Withdraw buttons to trigger actions and see the authorization result.

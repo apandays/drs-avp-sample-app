@@ -1,5 +1,6 @@
 import { TSAccountProtectionProvider } from '@transmitsecurity/riskid-reactjs-ts';
 import type { AppProps } from 'next/app';
+import { Config } from '@/utils';
 import React from 'react';
 import Image from 'next/image';
 import FormComponent from './FormComponent';
@@ -7,7 +8,7 @@ import '../App.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <TSAccountProtectionProvider clientId={'<YOUR-TRANSMIT-CLIENT-ID>'}>
+    <TSAccountProtectionProvider clientId={Config.transmitClientId}>
     <div className="App">
       <header className="App-header">
       <h2>

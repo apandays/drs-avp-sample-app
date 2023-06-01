@@ -2,12 +2,41 @@ import { Config } from '@utils';
 import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { isAuthorized } from './aws-verified-permissions';
+import { RecommendationResult } from './recommendation.types';
 
 function parseActionToken(actionToken: unknown) {
   if (typeof actionToken == 'string') {
     return JSON.parse(Buffer.from(actionToken.split('.')[1], 'base64').toString());
   }
   return {};
+}
+
+function formatPresentedRecommendation(recommendationResponse: RecommendationResult) {
+  const { recommendation, risk_score } = recommendationResponse;
+  let presentedRecommendation;
+  switch(recommendation?.type) {
+    case 'TRUST':
+      presentedRecommendation = 'TRUST';
+      break;
+    case 'ALLOW':
+      presentedRecommendation = 'ALLOW';
+      break;
+    case 'CHALLENGE':
+      presentedRecommendation = 'CHALLENGE';
+      break;
+    case 'DENY':
+      presentedRecommendation = 'DENY';
+      break;
+    default:
+      presentedRecommendation = null;
+  }
+
+  const returnedScore = !Number(risk_score) ? null : risk_score;
+
+  return {
+    recommendation: presentedRecommendation,
+    risk_score: returnedScore,
+  };
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -37,7 +66,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           }
         }
       }
-      res.send({ ...recommendationResponse, status: res.status });
+      // We return the recommendation result to the client just for demo presenting, hence we format it to avoid Cross-Site-scripting (XSS) vulnerability
+      const returnedRecommendation = formatPresentedRecommendation(recommendationResponse); 
+
+      res.send({ ...returnedRecommendation, status: res.status });
     } catch (e) {
       console.error(e);
       const message = axios.isAxiosError(e) ? e.response?.data?.message : 'An error occured';

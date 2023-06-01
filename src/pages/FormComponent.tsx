@@ -20,8 +20,8 @@ function FormComponent() {
   const triggerActionHandler = async (actionType: string) => {
     const actionResponse = await triggerActionEvent(actionType);
     const riskResult = await BffClient.getRiskRecommendation(actionResponse?.actionToken);
-    console.log(`DRS Recommendation result for '${actionType}':`, riskResult);
-    const recommendation = riskResult?.recommendation?.type;
+    console.log("DRS Recommendation result for '" + actionType + "': " + JSON.stringify(riskResult));
+    const recommendation = riskResult?.recommendation;
     if (recommendation) {
       alert('Success!');
     } else {

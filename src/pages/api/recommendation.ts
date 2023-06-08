@@ -3,7 +3,6 @@ import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { isAuthorized } from './aws-verified-permissions';
 import { RecommendationResult } from './recommendation.types';
-import { EntityAttributes } from 'aws-verified-permissions/clients/verifiedpermissions';
 
 
 function parseActionToken(actionToken: unknown) {

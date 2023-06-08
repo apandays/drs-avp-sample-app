@@ -3,17 +3,8 @@ import { Config } from "@utils";
 
 const client = new AWS.VerifiedPermissions({ region: Config.region });
 
-export type Entity = {
-  entityType: string;
-  entityId: string;
-};
 
-type Action = {
-  actionType: string;
-  actionId: string;
-};
-
-export async function isAuthorized(principal: AWS.VerifiedPermissions.EntityIdentifier, resource: AWS.VerifiedPermissions.EntityIdentifier, action: Action, riskScore: number, entities: AWS.VerifiedPermissions.EntitiesDefinition) {
+export async function isAuthorized(principal: AWS.VerifiedPermissions.EntityIdentifier, resource: AWS.VerifiedPermissions.EntityIdentifier, action: AWS.VerifiedPermissions.Action, riskScore: number, entities: AWS.VerifiedPermissions.EntitiesDefinition) {
   try {
     
     console.log("Authorization entites: ",JSON.stringify(entities));

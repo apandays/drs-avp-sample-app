@@ -6,7 +6,7 @@ const client = new AWS.VerifiedPermissions({ region: Config.region });
 export async function isAuthorized(
   principal: AWS.VerifiedPermissions.EntityIdentifier,
   resource: AWS.VerifiedPermissions.EntityIdentifier,
-  action: AWS.VerifiedPermissions.Action,
+  action: AWS.VerifiedPermissions.ActionIdentifier,
   riskScore: number,
   entities: AWS.VerifiedPermissions.EntitiesDefinition
 ) {

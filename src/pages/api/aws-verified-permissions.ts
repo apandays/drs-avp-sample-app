@@ -18,7 +18,7 @@ export async function isAuthorized(
       resource: resource,
       action: action,
       context: {
-        context: {
+        contextMap: {
           riskScore: { long: riskScore },
         },
       },

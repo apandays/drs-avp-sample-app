@@ -175,7 +175,7 @@ function getUserEntitiesFromToken(
   };
 
   let entities: AWS.VerifiedPermissions.EntitiesDefinition = {
-    entities: [entityItem],
+    entityList: [entityItem],
   };
   return entities;
 }

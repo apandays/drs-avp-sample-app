@@ -67,8 +67,9 @@ export default async function handler(
         const { actionType, userId } = actionPayload;
         const resource = {
           // default resource example
-          entityType: "Account",
-          entityId: `account-${userId}`,
+
+          EntityType: 'Account',
+          EntityId: `account-${userId}`,
         };
 
         if (userId) {

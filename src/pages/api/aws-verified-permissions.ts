@@ -24,7 +24,6 @@ export async function isAuthorized(
       },
       entities,
     };
-
     const result: AWS.VerifiedPermissions.IsAuthorizedOutput = await client
       .isAuthorized(isAuthorizedInput)
       .promise();

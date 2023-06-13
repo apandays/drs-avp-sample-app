@@ -67,7 +67,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
       }
       // We return the recommendation result to the client just for demo presenting, hence we format it to avoid Cross-Site-scripting (XSS) vulnerability
-      const returnedRecommendation = formatPresentedRecommendation(recommendationResponse); 
+      const returnedRecommendation = formatPresentedRecommendation(recommendationResponse);
 
       res.send({ ...returnedRecommendation, status: res.status });
     } catch (e) {

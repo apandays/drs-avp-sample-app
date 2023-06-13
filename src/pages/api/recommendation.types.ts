@@ -122,4 +122,3 @@ export interface RecommendationResult {
   reasons: RecommendationReason[];
   preview_rule?: PreviewRule;
 }
-

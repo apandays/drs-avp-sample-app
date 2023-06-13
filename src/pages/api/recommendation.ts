@@ -14,7 +14,7 @@ function parseActionToken(actionToken: unknown) {
 function formatPresentedRecommendation(recommendationResponse: RecommendationResult) {
   const { recommendation, risk_score } = recommendationResponse;
   let presentedRecommendation;
-  switch(recommendation?.type) {
+  switch (recommendation?.type) {
     case 'TRUST':
       presentedRecommendation = 'TRUST';
       break;
@@ -48,16 +48,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (Config.enableAWSVerifiedPermissions) {
         const actionPayload = parseActionToken(actionToken);
         const { actionType, userId } = actionPayload;
-        const resource = { // default resource example
+        const resource = {
+          // default resource example
           EntityType: 'Account',
-          EntityId: `account-${userId}`
+          EntityId: `account-${userId}`,
         };
 
         if (userId) {
-          const isAuthorizedForAction = await isAuthorized({ EntityType: 'User', EntityId: userId }, resource, {
-            ActionType: 'Action',
-            ActionId: actionType,
-          }, recommendationResponse?.risk_score);
+          const isAuthorizedForAction = await isAuthorized(
+            { EntityType: 'User', EntityId: userId },
+            resource,
+            {
+              ActionType: 'Action',
+              ActionId: actionType,
+            },
+            recommendationResponse?.risk_score,
+          );
           if (!isAuthorizedForAction) {
             res.status(403).send({
               message: 'Action is forbidden for this user!',

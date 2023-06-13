@@ -1,5 +1,5 @@
 const AWS = require('aws-verified-permissions');
-import { Config } from "@utils";
+import { Config } from '@utils';
 
 const client = new AWS.VerifiedPermissions({ region: Config.region });
 
@@ -13,7 +13,12 @@ type Action = {
   ActionId: string;
 };
 
-export async function isAuthorized(principal: Entity, resource: Entity, action: Action, riskScore: number) {
+export async function isAuthorized(
+  principal: Entity,
+  resource: Entity,
+  action: Action,
+  riskScore: number,
+) {
   try {
     const result = await client
       .isAuthorized({
@@ -22,8 +27,8 @@ export async function isAuthorized(principal: Entity, resource: Entity, action: 
         Resource: resource,
         Action: action,
         Context: {
-          riskScore: { Long: riskScore }
-        }, 
+          riskScore: { Long: riskScore },
+        },
       })
       .promise();
 

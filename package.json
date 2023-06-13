@@ -10,20 +10,22 @@
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix"
   },
   "dependencies": {
-    "aws-verified-permissions": "file:src/pages/api/sdks/avp",
+    "@transmitsecurity/riskid-reactjs-ts": "1.0.14",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
+    "aws-verified-permissions": "file:src/pages/api/sdks/avp",
+    "axios": "^1.3.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
+    "eslint-plugin-prettier": "4.2.1",
     "next": "13.4.3",
     "postcss": "8.4.23",
+    "prettier": "2.8.8",
     "react": "18.2.0",
-    "axios": "^1.3.1",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
-    "typescript": "5.0.4",
-    "@transmitsecurity/riskid-reactjs-ts": "1.0.14"
+    "typescript": "5.0.4"
   }
 }
